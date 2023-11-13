@@ -36,7 +36,7 @@ Más ejemplos en la documentación de la API en http://localhost:3000/api-docs/.
 ## Requisitos
 
 - Node.js y npm instalados.
-- Una base de datos MySQL configurada con los datos proporcionados en la carpeta `export`.
+- Una base de datos PostgreSQL configurada con los datos proporcionados en la carpeta `export`.
 
 ## Instalación del backend
 
