@@ -1,14 +1,9 @@
 const express = require('express');
-
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 const packageInfo = require('./package.json');
-
-
+const cors = require('cors'); // Importa el paquete CORS
 const sequelize = require('./utils/database');
-
-// Importar middleware
-const { requireAuth, requireRole } = require('./middleware');
 
 // Importa tus archivos de rutas
 const estudiantesRoutes = require('./routes/estudiantesRoutes');
@@ -37,6 +32,16 @@ const options = {
 
 // Inicializa el swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(options);
+
+// Configura CORS para permitir solicitudes desde localhost:5173
+const corsOptions = {
+    origin: 'http://localhost:5173', // Reemplaza con la URL de tu frontend en localhost
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Habilita el intercambio de cookies y encabezados de autenticación
+    optionsSuccessStatus: 204, // Responde con un 204 No Content en las pre-vuelos OPTIONS
+};
+
+app.use(cors(corsOptions));
 
 // Inicializa el swagger-ui-express
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
@@ -68,4 +73,3 @@ sequelize.sync()
         app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
     })
     .catch(err => console.log(err));
-
