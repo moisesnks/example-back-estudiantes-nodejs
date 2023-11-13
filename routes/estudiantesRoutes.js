@@ -13,4 +13,3 @@ router.get('/:id/calificaciones', estudiantesController.getCalificacionesById);
 router.get('/:id/calificaciones/:idCurso', estudiantesController.getCalificacionesById_IdCurso);
 
 module.exports = router;
-

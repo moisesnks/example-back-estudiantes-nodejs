@@ -9,8 +9,18 @@
  * @swagger
  * /estudiantes:
  *   post:
- *     summary: Crea un nuevo estudiante.
+ *     summary: Crea un nuevo estudiante (requiere rol de profesor)
  *     tags: [Estudiantes]
+ *     description: |
+ *       **Instrucciones para probar:**
+ *       1. Obtén un token JWT válido con el rol de profesor.
+ *       2. Agrega el token JWT en la cabecera de autorización (Bearer <token_jwt>).
+ *          Ejemplo de cabecera:
+ *          ```
+ *          Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+ *          ```
+ *     security:
+ *       - bearerAuth: [] # Indica que se requiere un token JWT
  *     requestBody:
  *       required: true
  *       content:
@@ -36,16 +46,18 @@
  *         description: Estudiante creado con éxito.
  *       400:
  *         description: Error en la solicitud debido a datos incorrectos.
+ *       401:
+ *         description: Acceso no autorizado (token JWT no válido o rol incorrecto).
  *       500:
  *         description: Error interno del servidor.
-
+ *
  *   get:
  *     summary: Obtiene la lista de estudiantes.
  *     tags: [Estudiantes]
  *     responses:
  *       200:
  *         description: Lista de estudiantes obtenida con éxito.
-
+ *
  * /estudiantes/{id}:
  *   get:
  *     summary: Obtiene un estudiante por su ID.

@@ -7,12 +7,16 @@ const packageInfo = require('./package.json');
 
 const sequelize = require('./utils/database');
 
+// Importar middleware
+const { requireAuth, requireRole } = require('./middleware');
+
 // Importa tus archivos de rutas
 const estudiantesRoutes = require('./routes/estudiantesRoutes');
 const calificacionesRoutes = require('./routes/calificacionesRoutes');
 const departamentosRoutes = require('./routes/departamentosRoutes');
 const profesoresRoutes = require('./routes/profesoresRoutes');
 const cursosRoutes = require('./routes/cursosRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 app.use(express.json());
@@ -43,6 +47,7 @@ app.use('/calificaciones', calificacionesRoutes);
 app.use('/departamentos', departamentosRoutes);
 app.use('/profesores', profesoresRoutes);
 app.use('/cursos', cursosRoutes);
+app.use('/auth', authRoutes);
 
 // Ruta de bienvenida
 app.get('/', (req, res) => {

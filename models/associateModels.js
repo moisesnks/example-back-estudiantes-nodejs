@@ -4,6 +4,7 @@ const Profesor = require('./profesor');
 const Curso = require('./curso');
 const Calificacion = require('./calificacion');
 const Departamento = require('./departamento');
+const Usuario = require('./usuario');
 
 
 module.exports = {
@@ -11,7 +12,8 @@ module.exports = {
     Profesor,
     Curso,
     Calificacion,
-    Departamento
+    Departamento,
+    Usuario
 };
 
 Curso.belongsTo(Departamento, { foreignKey: 'departamento_id' });

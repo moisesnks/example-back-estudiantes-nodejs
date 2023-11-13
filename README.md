@@ -61,7 +61,6 @@ Más ejemplos en la documentación de la API en http://localhost:3000/api-docs/.
 4. Una vez que se haya importado el archivo `backup-example.sql`, los datos de prueba ficticios estarán disponibles en tu base de datos PostgreSQL.
 
 
-
 ## Licencia
 
 El sistema está licenciado bajo la licencia MIT.
