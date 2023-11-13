@@ -1,13 +1,17 @@
 const { Curso } = require('../../models/associateModels');
 
-const getAllCursos = async (req, res) => {
+const getCursoById = async (req, res, next) => {
     try {
-        const cursos = await Curso.findAll();
-        res.json(cursos);
+        const curso = await Curso.findByPk(req.params.id);
+        if (!curso) {
+            const error = new Error('Curso no encontrado');
+            error.statusCode = 404;
+            throw error;
+        }
+        res.json(curso);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Error al obtener los cursos' });
+        next(error);
     }
 };
 
-module.exports = getAllCursos;
+module.exports = getCursoById;

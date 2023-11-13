@@ -1,3 +1,4 @@
+// associateModel.js
 const Estudiante = require('./estudiante');
 const Profesor = require('./profesor');
 const Curso = require('./curso');
@@ -12,3 +13,6 @@ module.exports = {
     Calificacion,
     Departamento
 };
+
+Curso.belongsTo(Departamento, { foreignKey: 'departamento_id' });
+Departamento.hasMany(Curso, { foreignKey: 'departamento_id' });

@@ -3,6 +3,7 @@ const deleteProfesor = require('./delete');
 const getAllProfesores = require('./getAll');
 const getProfesorById = require('./getById');
 const updateProfesor = require('./update');
+const getCursosById = require('./getCursosById');
 
 module.exports = {
     createProfesor,
@@ -10,4 +11,5 @@ module.exports = {
     getAllProfesores,
     getProfesorById,
     updateProfesor,
+    getCursosById,
 };

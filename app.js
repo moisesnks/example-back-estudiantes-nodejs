@@ -28,7 +28,7 @@ const options = {
         },
     },
     // Especifica los archivos de rutas que contienen los comentarios JSDoc
-    apis: ['./routes/*.js'],
+    apis: ['./docs/*.js'],
 };
 
 // Inicializa el swagger-jsdoc

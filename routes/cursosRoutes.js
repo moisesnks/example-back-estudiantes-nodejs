@@ -9,4 +9,5 @@ router.get('/:id', cursosController.getCursoById);
 router.put('/:id', cursosController.updateCurso);
 router.delete('/:id', cursosController.deleteCurso);
 
+
 module.exports = router;
